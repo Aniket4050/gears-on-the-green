@@ -88,34 +88,93 @@
   </section>
 
   <section id="services">
-    <h2>Our Services</h2>
-    <div class="services">
-      <div class="service">
-        <h3>Air Conditioning Design</h3>
-        <p>Precision cooling systems designed for efficiency, sustainability, and long-term performance.</p>
-      </div>
-      <div class="service">
-        <h3>Equipment Handling & Installation</h3>
-        <p>Expert supervision and execution of equipment movement, setup, and safety practices.</p>
-      </div>
-      <div class="service">
-        <h3>Repair & Maintenance</h3>
-        <p>Mechanical repair and preventive maintenance to reduce downtime and ensure reliability.</p>
-      </div>
-      <div class="service">
-        <h3>Condition Monitoring</h3>
-        <p>Advanced vibration and ultrasound analysis for fault detection and performance tracking.</p>
-      </div>
-      <div class="service">
-        <h3>Predictive Maintenance</h3>
-        <p>Data-driven maintenance strategies to anticipate failures and extend equipment life.</p>
-      </div>
-      <div class="service">
-        <h3>Energy Auditing</h3>
-        <p>Comprehensive audits to optimize energy use and reduce operational costs.</p>
+  <h2>Our Services</h2>
+  <div class="accordion">
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <span>Air Conditioning Design</span>
+        <span class="arrow">▼</span>
+      </button>
+      <div class="accordion-body">
+        <p>
+          We specialize in designing customized air conditioning systems that balance thermal comfort with energy efficiency. Whether it's for residential, commercial, or industrial setups, we ensure optimal airflow, smart load calculations, and equipment sizing tailored to your building’s needs. Our designs consider eco-friendly refrigerants, green building standards, and long-term operational savings. From blueprint to execution, our goal is simple—cooling that’s sustainable, silent, and smart.
+        </p>
       </div>
     </div>
-  </section>
+
+    <!-- Copy this structure for other services -->
+  </div>
+</section>
+
+<style>
+  .accordion {
+    max-width: 900px;
+    margin: auto;
+  }
+  .accordion-item {
+    background: #e8f5e9;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  .accordion-header {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .accordion-header .arrow {
+    transition: transform 0.3s ease;
+  }
+  .accordion-item.active .arrow {
+    transform: rotate(180deg);
+  }
+  .accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    background: #f1f8e9;
+    padding: 0 1rem;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+  }
+  .accordion-item.active .accordion-body {
+    padding: 1rem;
+    max-height: 300px; /* Adjust as needed */
+  }
+  @media (max-width: 768px) {
+    .accordion-header {
+      font-size: 1rem;
+    }
+    .accordion-body {
+      font-size: 0.95rem;
+    }
+  }
+</style>
+
+<script>
+  const headers = document.querySelectorAll('.accordion-header');
+
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.parentElement;
+      const openItem = document.querySelector('.accordion-item.active');
+
+      if (openItem && openItem !== item) {
+        openItem.classList.remove('active');
+      }
+
+      item.classList.toggle('active');
+    });
+  });
+</script>
 
   <section id="contact">
     <h2>Contact</h2>
